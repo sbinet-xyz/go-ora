@@ -8,10 +8,11 @@ import (
 	"encoding/binary"
 	"errors"
 	"fmt"
-	"github.com/sijms/go-ora/v2/network"
 	"reflect"
 	"regexp"
 	"strings"
+
+	"github.com/sijms/go-ora/v2/network"
 )
 
 type StmtType int

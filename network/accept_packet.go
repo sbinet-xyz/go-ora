@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-//type AcceptPacket Packet
+// type AcceptPacket Packet
 type AcceptPacket struct {
 	packet     Packet
 	sessionCtx SessionContext

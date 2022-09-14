@@ -3,8 +3,9 @@ package go_ora
 import (
 	"database/sql/driver"
 	"errors"
-	"github.com/sijms/go-ora/v2/converters"
 	"time"
+
+	"github.com/sijms/go-ora/v2/converters"
 )
 
 type ValueEncoder interface {

@@ -2,10 +2,10 @@ package go_ora
 
 import (
 	"database/sql/driver"
-	"github.com/sijms/go-ora/trace"
 	"io"
 
 	"github.com/sijms/go-ora/network"
+	"github.com/sijms/go-ora/trace"
 )
 
 // Compile time Sentinels for implemented Interfaces.

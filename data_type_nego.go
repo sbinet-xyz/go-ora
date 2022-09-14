@@ -3,8 +3,9 @@ package go_ora
 import (
 	"errors"
 	"fmt"
-	"github.com/sijms/go-ora/network"
 	"time"
+
+	"github.com/sijms/go-ora/network"
 )
 
 type DataTypeNego struct {

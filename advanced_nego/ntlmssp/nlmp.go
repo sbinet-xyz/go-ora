@@ -10,8 +10,9 @@ package ntlmssp
 import (
 	"crypto/hmac"
 	"crypto/md5"
-	"github.com/sijms/go-ora/network/security/md4"
 	"strings"
+
+	"github.com/sijms/go-ora/network/security/md4"
 )
 
 func getNtlmV2Hash(password, username, target string) []byte {

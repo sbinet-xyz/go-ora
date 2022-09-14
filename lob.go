@@ -3,6 +3,7 @@ package go_ora
 import (
 	"bytes"
 	"errors"
+
 	"github.com/sijms/go-ora/network"
 )
 

@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
+
 	"github.com/sijms/go-ora/v2/network"
 )
 
@@ -162,7 +163,7 @@ func (lob *Lob) putString(data string, charset int) error {
 	return lob.read()
 }
 
-//isTemporary: return true if the lob is temporary
+// isTemporary: return true if the lob is temporary
 func (lob *Lob) isTemporary() bool {
 	if len(lob.sourceLocator) > 7 {
 		if lob.sourceLocator[7]&1 == 1 || lob.sourceLocator[4]&0x40 == 0x40 {
@@ -172,7 +173,7 @@ func (lob *Lob) isTemporary() bool {
 	return false
 }
 
-//freeAllTemporary: free temporary lobs defined by all_locators
+// freeAllTemporary: free temporary lobs defined by all_locators
 func (lob *Lob) freeAllTemporary(all_locators [][]byte) error {
 	if len(all_locators) == 0 {
 		return nil

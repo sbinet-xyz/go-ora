@@ -620,8 +620,9 @@ func addDigitToMantissa(mantissaIn uint64, d byte) (mantissaOut uint64, carryOut
 // FromNumber decode Oracle binary representation of numbers
 // and returns mantissa, negative and exponent
 // Some documentation:
-//	https://gotodba.com/2015/03/24/how-are-numbers-saved-in-oracle/
-//  https://www.orafaq.com/wiki/Number
+//
+//		https://gotodba.com/2015/03/24/how-are-numbers-saved-in-oracle/
+//	 https://www.orafaq.com/wiki/Number
 func FromNumber(inputData []byte) (mantissa uint64, negative bool, exponent int, mantissaDigits int, err error) {
 	if len(inputData) == 0 {
 		return 0, false, 0, 0, fmt.Errorf("Invalid NUMBER")

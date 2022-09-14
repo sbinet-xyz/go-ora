@@ -2,7 +2,7 @@ package network
 
 import "encoding/binary"
 
-//type ConnectPacket Packet
+// type ConnectPacket Packet
 type ConnectPacket struct {
 	packet     Packet
 	sessionCtx SessionContext

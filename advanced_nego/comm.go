@@ -2,6 +2,7 @@ package advanced_nego
 
 import (
 	"errors"
+
 	"github.com/sijms/go-ora/network"
 )
 

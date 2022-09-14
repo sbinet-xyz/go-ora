@@ -3,6 +3,7 @@ package advanced_nego
 import (
 	"errors"
 	"fmt"
+
 	"github.com/sijms/go-ora/network/security"
 )
 

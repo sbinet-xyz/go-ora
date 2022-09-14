@@ -3,6 +3,7 @@ package advanced_nego
 import (
 	"encoding/binary"
 	"errors"
+
 	"github.com/sijms/go-ora/v2/advanced_nego/ntlmssp"
 )
 

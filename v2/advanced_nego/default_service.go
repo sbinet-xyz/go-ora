@@ -34,64 +34,67 @@ func (serv *defaultService) activateAlgorithm() error {
 	return nil
 }
 
-//func (serv *defaultService) writePacketHeader(session *network.Session, length, _type int) {
-//	// the driver call Anocommunication.ValidateType(length, type);
-//	session.PutInt(length, 2, true, false)
-//	session.PutInt(_type, 2, true, false)
-//}
-//func (serv *defaultService) readPacketHeader(session *network.Session, _type int) (length int, err error) {
-//	length, err = session.GetInt(2, false, true)
-//	if err != nil {
+//	func (serv *defaultService) writePacketHeader(session *network.Session, length, _type int) {
+//		// the driver call Anocommunication.ValidateType(length, type);
+//		session.PutInt(length, 2, true, false)
+//		session.PutInt(_type, 2, true, false)
+//	}
+//
+//	func (serv *defaultService) readPacketHeader(session *network.Session, _type int) (length int, err error) {
+//		length, err = session.GetInt(2, false, true)
+//		if err != nil {
+//			return
+//		}
+//		receivedType, err := session.GetInt(2, false, true)
+//		if err != nil {
+//			return 0, err
+//		}
+//		if receivedType != _type {
+//			err = errors.New("advanced negotiation error: received type is not as stored type")
+//			return
+//		}
+//		err = serv.validatePacketHeader(length, receivedType)
 //		return
 //	}
-//	receivedType, err := session.GetInt(2, false, true)
-//	if err != nil {
-//		return 0, err
+//
+//	func (serv *defaultService) validatePacketHeader(length, _type int) error {
+//		if _type < 0 || _type > 7 {
+//			return errors.New("advanced negotiation error: cannot validate packet header")
+//		}
+//		switch _type {
+//		case 0, 1:
+//			break
+//		case 2:
+//			if length > 1 {
+//				return errors.New("advanced negotiation error: cannot validate packet header")
+//			}
+//		case 3:
+//			fallthrough
+//		case 6:
+//			if length > 2 {
+//				return errors.New("advanced negotiation error: cannot validate packet header")
+//			}
+//		case 4:
+//			fallthrough
+//		case 5:
+//			if length > 4 {
+//				return errors.New("advanced negotiation error: cannot validate packet header")
+//			}
+//		case 7:
+//			if length < 10 {
+//				return errors.New("advanced negotiation error: cannot validate packet header")
+//			}
+//		default:
+//			return errors.New("advanced negotiation error: cannot validate packet header")
+//		}
+//		return nil
 //	}
-//	if receivedType != _type {
-//		err = errors.New("advanced negotiation error: received type is not as stored type")
+//
+//	func (serv *defaultService) readUB2(session *network.Session) (number int, err error) {
+//		_, err = serv.readPacketHeader(session, 3)
+//		number, err = session.GetInt(2, false, true)
 //		return
 //	}
-//	err = serv.validatePacketHeader(length, receivedType)
-//	return
-//}
-//func (serv *defaultService) validatePacketHeader(length, _type int) error {
-//	if _type < 0 || _type > 7 {
-//		return errors.New("advanced negotiation error: cannot validate packet header")
-//	}
-//	switch _type {
-//	case 0, 1:
-//		break
-//	case 2:
-//		if length > 1 {
-//			return errors.New("advanced negotiation error: cannot validate packet header")
-//		}
-//	case 3:
-//		fallthrough
-//	case 6:
-//		if length > 2 {
-//			return errors.New("advanced negotiation error: cannot validate packet header")
-//		}
-//	case 4:
-//		fallthrough
-//	case 5:
-//		if length > 4 {
-//			return errors.New("advanced negotiation error: cannot validate packet header")
-//		}
-//	case 7:
-//		if length < 10 {
-//			return errors.New("advanced negotiation error: cannot validate packet header")
-//		}
-//	default:
-//		return errors.New("advanced negotiation error: cannot validate packet header")
-//	}
-//	return nil
-//}
-//func (serv *defaultService) readUB2(session *network.Session) (number int, err error) {
-//	_, err = serv.readPacketHeader(session, 3)
-//	number, err = session.GetInt(2, false, true)
-//	return
-//}
 func (serv *defaultService) writeHeader(serviceSubPackets int) {
 	serv.comm.session.PutInt(serv.serviceType, 2, true, false)
 	serv.comm.session.PutInt(serviceSubPackets, 2, true, false)

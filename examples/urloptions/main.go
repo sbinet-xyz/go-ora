@@ -3,9 +3,10 @@ package main
 import (
 	"flag"
 	"fmt"
-	go_ora "github.com/sijms/go-ora/v2"
 	"os"
 	"strconv"
+
+	go_ora "github.com/sijms/go-ora/v2"
 )
 
 func usage() {
