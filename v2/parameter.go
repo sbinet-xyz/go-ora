@@ -831,7 +831,7 @@ func (par *ParameterInfo) decodeValue(connection *Connection) (driver.Value, err
 				tempVal = connection.strConv.Decode(par.BValue)
 			}
 		case NUMBER:
-			tempVal = Num(par.BValue)
+			tempVal = converters.Number(par.BValue)
 		case TimeStampDTY:
 			fallthrough
 		case TimeStampeLTZ:
